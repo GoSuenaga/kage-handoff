@@ -61,12 +61,12 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background: url('assets/kv_bg.png') center/cover no-repeat;
-    opacity: 0.35; filter: saturate(0.7);
+    background: url('assets/hero_bg_v2.png') center/cover no-repeat;
+    opacity: 1; filter: none;
   }
   .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(160deg, rgba(26,92,58,0.85) 0%, rgba(26,26,26,0.75) 50%, rgba(26,92,58,0.6) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 100%);
   }
   .hero-content {
     position: relative; z-index: 2; padding: 120px 24px 80px; max-width: 800px;
@@ -329,6 +329,17 @@
 
   /* ── Projects ── */
   .projects { background: var(--bg); }
+  .projects-photo {
+    margin: 32px 0 24px; border-radius: 14px; overflow: hidden;
+    background: var(--white); box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+  }
+  .projects-photo img {
+    width: 100%; height: auto; display: block;
+  }
+  .projects-photo figcaption {
+    padding: 14px 20px; font-size: 13px; color: var(--gray);
+    border-top: 1px solid rgba(0,0,0,0.06); text-align: center;
+  }
   .project-list {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px; margin-top: 40px;
@@ -732,6 +743,10 @@
   <div class="container fade-in">
     <p class="section-label">Projects 2025</p>
     <h2 class="section-title">参加プロジェクト例</h2>
+    <figure class="projects-photo">
+      <img src="assets/2025_thankyou.png" alt="2025年度 CA SHIP 参加プロジェクト集合写真（修了式 / Thank You）">
+      <figcaption>2025年度 修了式にて — 参加メンバー集合</figcaption>
+    </figure>
     <p class="section-lead">
       2025年度にCA SHIPでプレゼンテーションを行った藝大関係者のプロジェクトです。
     </p>
