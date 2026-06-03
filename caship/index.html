@@ -244,6 +244,19 @@
     font-size: 14px; color: var(--gray); line-height: 1.8;
   }
   .program-note strong { color: var(--green-dark); }
+  .guest-profile {
+    display: flex; gap: 16px; align-items: center;
+    margin-top: 16px; padding: 16px 18px; border-radius: 12px;
+    background: var(--green-pale); border: 1px dashed rgba(45,143,95,0.4);
+  }
+  .guest-profile .photo {
+    width: 60px; height: 60px; border-radius: 50%; flex-shrink: 0;
+    background: var(--white); border: 1px solid rgba(45,143,95,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; color: var(--green-light);
+  }
+  .guest-profile .gp-name { font-size: 15px; font-weight: 700; color: var(--green-dark); margin-bottom: 2px; }
+  .guest-profile .gp-bio { font-size: 13px; color: var(--gray); line-height: 1.6; }
 
   /* ── Schedule ── */
   .schedule { background: var(--bg); }
@@ -422,7 +435,7 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-logos">
-      <img src="assets/geidai_ca_logo.png" alt="東京藝術大学 x CyberAgent">
+      <img src="assets/geidai_logo.png" alt="東京藝術大学" style="height:56px;">
     </div>
     <h1>CA SHIP</h1>
     <p class="hero-sub">SOCIAL HUB FOR IMPLEMENTATION PROGRAM</p>
@@ -547,6 +560,13 @@
             自身の表現をどのように社会へ届け、カルチャーとして広げてきたのか。作品づくりだけではなく、その背景にある視点や挑戦、取り組みについてお話しいただきます。
             第一線で活動するロールモデルとの出会いを通して、「アーティストとして生きる」ということを、よりリアルに考える講義です。
           </p>
+          <div class="guest-profile">
+            <div class="photo">&#128100;</div>
+            <div>
+              <p class="gp-name">ゲスト講師プロフィール</p>
+              <p class="gp-bio">※ ゲスト講師のプロフィールは、決まり次第こちらに掲載します。</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="program-session">
@@ -641,9 +661,9 @@
     </div>
     <p style="margin-top:32px; font-size:14px; color:var(--gray);">
       参考記事：
-      <a href="https://capture.cyberagent.co.jp/article/A0101" target="_blank" rel="noopener" style="color:var(--green-mid);">CAPTURE A0101</a>
+      <a href="https://capture.cyberagent.co.jp/article/A0101" target="_blank" rel="noopener" style="color:var(--green-mid);">第1回「CA SHIP」イベントレポート</a>
       ／
-      <a href="https://capture.cyberagent.co.jp/article/A0118" target="_blank" rel="noopener" style="color:var(--green-mid);">CAPTURE A0118</a>
+      <a href="https://capture.cyberagent.co.jp/article/A0118" target="_blank" rel="noopener" style="color:var(--green-mid);">第3回 @芸術未来研究場展 イベントレポート</a>
     </p>
   </div>
 </section>
@@ -695,7 +715,7 @@
     お問い合わせ：<a href="mailto:i-love-you@ml.geidai.ac.jp">i-love-you@ml.geidai.ac.jp</a>
   </p>
   <p style="margin-top:24px; font-size:11px; opacity:0.6;">
-    &copy; CA SHIP / Tokyo University of the Arts &times; CyberAgent, Inc.
+    &copy; CA SHIP
   </p>
 </footer>
 
