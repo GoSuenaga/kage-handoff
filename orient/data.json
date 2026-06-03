@@ -2,6 +2,28 @@
   "deliveries": [
     {
       "date": "2026-06-03",
+      "title": "リクルートエージェント — 自動車業界 第1回ハンドオフ（20案／トヨタ・ホンダ・日産・マツダ）",
+      "desc": "メイン20字以内＋GP4ブリッジ済みリード（全リードRecruit Agentへの転職橋渡し）＋画像（gpt-image-2 via fal）。タグライン「自動車業界で働く」は後乗せ。Dropbox: hal-shared/recruit/handoffs/20260603_auto",
+      "tags": [
+        "RAG",
+        "自動車業界",
+        "v2",
+        "ハンドオフ",
+        "20案",
+        "トヨタ",
+        "ホンダ",
+        "日産",
+        "マツダ"
+      ],
+      "links": [
+        {
+          "label": "Dropbox 共有フォルダを開く",
+          "url": "https://www.dropbox.com/scl/fo/msofsfnqyz29yot4htzbk/ABCX15cfCYsVH9wZf2BY50A?rlkey=4g5o58j84u4f1dk6langu2ol7&dl=0"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-03",
       "title": "リクルートエージェント — 広告業界 第1回ハンドオフ（20案）",
       "desc": "メイン20字以内＋ブリッジ付きリード＋画像（gpt-image-2 via fal）。Dropbox: hal-shared/recruit/handoffs/20260603_ad",
       "tags": [
