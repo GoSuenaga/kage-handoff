@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<title>Orient — クリエイティブ・オリエン</title>
+<style>
+  :root{
+    --bg:#0e0e12;--panel:#17171f;--line:#2a2a36;
+    --text:#f4f4f6;--mut:#a7a7b4;--faint:#6e6e7c;
+    --accent:#ff3b6b;--accent2:#ffb33b;--ok:#3ddc97;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Helvetica Neue",sans-serif;
+    line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  /* === Gate === */
+  #gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .gate-card{
+    width:min(440px,100%);background:var(--panel);border:1px solid var(--line);
+    border-radius:18px;padding:34px 30px 30px;text-align:center;
+  }
+  .kicker{color:var(--accent);letter-spacing:.3em;font-size:11px;font-weight:700;margin-bottom:8px}
+  .gate-card h1{font-size:22px;margin-bottom:6px;letter-spacing:.02em}
+  .gate-card p{color:var(--mut);font-size:12.5px;margin-bottom:22px}
+  .gate-card input{
+    width:100%;background:#0e0e12;border:1px solid var(--line);border-radius:10px;
+    color:var(--text);font-size:14px;padding:13px 14px;outline:none;font-family:inherit;
+  }
+  .gate-card input:focus{border-color:var(--accent)}
+  .gate-card button{
+    margin-top:12px;width:100%;border:0;border-radius:10px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    color:#0e0e12;font-weight:800;font-size:14px;padding:13px;cursor:pointer;
+  }
+  .gate-card .err{color:#ff7a8c;font-size:12px;margin-top:10px;min-height:1em}
+  .gate-card .foot{color:var(--faint);font-size:11px;margin-top:18px;line-height:1.6}
+  /* === App === */
+  #app{display:none;padding:40px 24px 80px}
+  .wrap{max-width:1080px;margin:0 auto}
+  header.bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+  .brand{font-size:14px;letter-spacing:.25em;color:var(--accent);font-weight:700}
+  .who{font-size:12px;color:var(--mut)}
+  .who a{color:var(--mut);text-decoration:underline;cursor:pointer}
+  h2{font-size:26px;margin:0 0 4px;letter-spacing:.02em}
+  .lead{color:var(--mut);font-size:13px;margin-bottom:24px}
+  .list{display:grid;grid-template-columns:1fr;gap:14px}
+  .item{
+    background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:14px;padding:20px 22px;display:grid;
+    grid-template-columns:120px 1fr auto;gap:18px;align-items:center;
+    transition:transform .12s ease,border-color .12s ease;
+  }
+  .item:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .date{font-variant-numeric:tabular-nums;color:var(--mut);font-size:13px}
+  .title{font-size:16px;font-weight:700}
+  .desc{font-size:12.5px;color:var(--mut);margin-top:2px}
+  .tags{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font-size:10.5px;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+  .links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .btn{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;
+    padding:9px 13px;border-radius:8px;text-decoration:none;
+    background:#23232e;color:var(--text);border:1px solid var(--line);
+  }
+  .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#0e0e12;border:0}
+  .empty{color:var(--faint);text-align:center;padding:60px 20px;font-size:13px}
+  footer{color:var(--faint);font-size:11px;text-align:center;margin-top:40px}
+  @media (max-width:720px){
+    .item{grid-template-columns:1fr;gap:10px}
+    .links{justify-content:flex-start}
+  }
+</style>
+</head>
+<body>
+<section id="gate">
+  <div class="gate-card">
+    <div class="kicker">ORIENT</div>
+    <h1>クリエイティブ・オリエン</h1>
+    <p>関係者のみ閲覧可。メンバーは<b>登録メールアドレス</b>を入力してください。</p>
+    <form id="gateForm" autocomplete="off">
+      <input id="key" type="text" inputmode="email" placeholder="email address" autocomplete="off" spellcheck="false">
+      <button type="submit">開く</button>
+      <div class="err" id="err">&nbsp;</div>
+    </form>
+    <div class="foot">本サイトは検索エンジンに登録されない設定です。</div>
+  </div>
+</section>
+<section id="app">
+  <div class="wrap">
+    <header class="bar">
+      <div class="brand">ORIENT ／ クリエイティブ・オリエン</div>
+      <div class="who"><span id="whoLabel"></span> &nbsp;·&nbsp; <a id="logout">ログアウト</a></div>
+    </header>
+    <h2>オリエン一覧</h2>
+    <div class="lead">日付の新しい順。リンクをクリックすると、共有先（Dropbox等）が開きます。</div>
+    <div class="list" id="list"></div>
+    <footer>HAL ／ kage-handoff/orient</footer>
+  </div>
+</section>
+<script>
+const SALT = "hal-orient-2026-06";
+const STORAGE = "orient.unlock.v1";
+async function sha256hex(text){
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("");
+}
+async function tryUnlock(input){
+  const norm = (input||"").trim().toLowerCase();
+  if(!norm) return null;
+  const hex = await sha256hex(norm + SALT);
+  const res = await fetch("auth.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>null);
+  if(!res) return null;
+  if(res.keys.includes(hex)){
+    return { label: norm === "go" ? "GO" : norm, hex };
+  }
+  return null;
+}
+function show(panel){
+  document.getElementById("gate").style.display = panel==="gate" ? "flex" : "none";
+  document.getElementById("app").style.display  = panel==="app"  ? "block" : "none";
+}
+function fmtDate(s){
+  const d = new Date(s+"T00:00:00");
+  const w = ["日","月","火","水","木","金","土"][d.getDay()];
+  return s.replace(/-/g,".")+"（"+w+"）";
+}
+async function renderList(){
+  const data = await fetch("data.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>({deliveries:[]}));
+  const list = document.getElementById("list");
+  const items = (data.deliveries||[]).slice().sort((a,b)=>b.date.localeCompare(a.date));
+  if(!items.length){ list.innerHTML = '<div class="empty">まだオリエンが登録されていません。</div>'; return; }
+  list.innerHTML = items.map(it=>{
+    const tags = (it.tags||[]).map(t=>'<span class="tag">'+t+'</span>').join("");
+    const links = (it.links||[]).map((l,i)=>'<a class="btn '+(i===0?'primary':'')+'" href="'+l.url+'" target="_blank" rel="noopener noreferrer">'+l.label+'</a>').join("");
+    return '<div class="item">'
+      + '<div class="date">'+fmtDate(it.date)+'</div>'
+      + '<div><div class="title">'+it.title+'</div>'
+      + (it.desc?'<div class="desc">'+it.desc+'</div>':"")
+      + (tags?'<div class="tags">'+tags+'</div>':"")
+      + '</div>'
+      + '<div class="links">'+links+'</div>'
+      + '</div>';
+  }).join("");
+}
+async function init(){
+  const stored = localStorage.getItem(STORAGE);
+  if(stored){
+    try{
+      const obj = JSON.parse(stored);
+      const res = await fetch("auth.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>null);
+      if(res && res.keys.includes(obj.hex)){
+        document.getElementById("whoLabel").textContent = obj.label;
+        show("app"); renderList(); return;
+      }else{ localStorage.removeItem(STORAGE); }
+    }catch(e){ localStorage.removeItem(STORAGE); }
+  }
+  show("gate");
+}
+document.getElementById("gateForm").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const err = document.getElementById("err");
+  err.textContent = "";
+  const v = document.getElementById("key").value;
+  const ok = await tryUnlock(v);
+  if(!ok){ err.textContent = "認証できませんでした。登録のメールアドレスをご確認ください。"; return; }
+  localStorage.setItem(STORAGE, JSON.stringify(ok));
+  document.getElementById("whoLabel").textContent = ok.label;
+  show("app"); renderList();
+});
+document.getElementById("logout").addEventListener("click",(e)=>{
+  e.preventDefault(); localStorage.removeItem(STORAGE); show("gate");
+});
+init();
+</script>
+</body>
+</html>
