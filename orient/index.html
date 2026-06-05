@@ -64,6 +64,9 @@
   .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#0e0e12;border:0}
   .empty{color:var(--faint);text-align:center;padding:60px 20px;font-size:13px}
   footer{color:var(--faint);font-size:11px;text-align:center;margin-top:40px}
+  ul.kp{margin:8px 0 4px 4px;padding-left:18px}
+  ul.kp li{font-size:13px;color:var(--text);line-height:1.7;margin-bottom:4px}
+  ul.kp li b{color:var(--accent2)}
   /* Info panel */
   .info-section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:18px}
   .info-section h3{font-size:16px;margin-bottom:14px;color:var(--accent2);letter-spacing:.04em}
@@ -274,15 +277,22 @@ async function renderMinutes(){
   const list = document.getElementById("minutes-list");
   const items = (data.minutes||[]).slice().sort((a,b)=>b.date.localeCompare(a.date));
   if(!items.length){ list.innerHTML = '<div class="empty">まだ議事録が登録されていません。</div>'; return; }
+  // key_points 内の <b> はそのまま許可、それ以外はエスケープ
+  const escAllowB = (s) => esc(s).replace(/&lt;b&gt;/g,"<b>").replace(/&lt;\/b&gt;/g,"</b>");
   list.innerHTML = items.map(it=>{
     const attendees = (it.attendees||[]).map(esc).join("、");
     const tags = (it.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join("");
     const typeChip = it.type ? ' <span class="chip">'+esc(it.type)+'</span>' : '';
+    const keyPoints = (it.key_points||[]).filter(Boolean);
+    const kpHtml = keyPoints.length
+      ? '<ul class="kp">' + keyPoints.map(k=>'<li>'+escAllowB(k)+'</li>').join("") + '</ul>'
+      : '';
     return '<div class="item minutes-item">'
       + '<div class="date">'+fmtDate(it.date)+'</div>'
       + '<div><div class="title">'+esc(it.title)+typeChip+'</div>'
       + (attendees?'<div class="desc"><b>出席：</b>'+attendees+'</div>':'')
       + (it.summary?'<div class="desc">'+esc(it.summary)+'</div>':'')
+      + kpHtml
       + (tags?'<div class="tags">'+tags+'</div>':'')
       + '</div></div>';
   }).join("");
