@@ -22,59 +22,71 @@
   }
   /* === Gate === */
   #gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-  .gate-card{
-    width:min(440px,100%);background:var(--panel);border:1px solid var(--line);
-    border-radius:18px;padding:34px 30px 30px;text-align:center;
-  }
+  .gate-card{width:min(440px,100%);background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:34px 30px 30px;text-align:center}
   .kicker{color:var(--accent);letter-spacing:.3em;font-size:11px;font-weight:700;margin-bottom:8px}
   .gate-card h1{font-size:22px;margin-bottom:6px;letter-spacing:.02em}
   .gate-card p{color:var(--mut);font-size:12.5px;margin-bottom:22px}
-  .gate-card input{
-    width:100%;background:#0e0e12;border:1px solid var(--line);border-radius:10px;
-    color:var(--text);font-size:14px;padding:13px 14px;outline:none;font-family:inherit;
-  }
+  .gate-card input{width:100%;background:#0e0e12;border:1px solid var(--line);border-radius:10px;color:var(--text);font-size:14px;padding:13px 14px;outline:none;font-family:inherit}
   .gate-card input:focus{border-color:var(--accent)}
-  .gate-card button{
-    margin-top:12px;width:100%;border:0;border-radius:10px;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
-    color:#0e0e12;font-weight:800;font-size:14px;padding:13px;cursor:pointer;
-  }
+  .gate-card button{margin-top:12px;width:100%;border:0;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#0e0e12;font-weight:800;font-size:14px;padding:13px;cursor:pointer}
   .gate-card .err{color:#ff7a8c;font-size:12px;margin-top:10px;min-height:1em}
   .gate-card .foot{color:var(--faint);font-size:11px;margin-top:18px;line-height:1.6}
   /* === App === */
   #app{display:none;padding:40px 24px 80px}
   .wrap{max-width:1080px;margin:0 auto}
-  header.bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+  header.bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
   .brand{font-size:14px;letter-spacing:.25em;color:var(--accent);font-weight:700}
   .who{font-size:12px;color:var(--mut)}
   .who a{color:var(--mut);text-decoration:underline;cursor:pointer}
+  /* Tabs */
+  .tabs{display:flex;gap:4px;background:var(--panel);padding:4px;border-radius:12px;margin-bottom:24px;border:1px solid var(--line)}
+  .tab{flex:1;background:transparent;border:0;color:var(--mut);font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.04em;padding:11px 14px;border-radius:8px;cursor:pointer;transition:all .15s}
+  .tab:hover{color:var(--text)}
+  .tab.active{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#0e0e12}
+  .tab-panel{display:none}
+  .tab-panel.active{display:block}
+  /* Common */
   h2{font-size:26px;margin:0 0 4px;letter-spacing:.02em}
   .lead{color:var(--mut);font-size:13px;margin-bottom:24px}
   .list{display:grid;grid-template-columns:1fr;gap:14px}
-  .item{
-    background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
-    border-radius:14px;padding:20px 22px;display:grid;
-    grid-template-columns:120px 1fr auto;gap:18px;align-items:center;
-    transition:transform .12s ease,border-color .12s ease;
-  }
+  .item{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:20px 22px;display:grid;gap:18px;align-items:center;transition:transform .12s ease,border-color .12s ease}
   .item:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .item.orient-item{grid-template-columns:120px 1fr auto}
+  .item.minutes-item{grid-template-columns:120px 1fr}
   .date{font-variant-numeric:tabular-nums;color:var(--mut);font-size:13px}
   .title{font-size:16px;font-weight:700}
-  .desc{font-size:12.5px;color:var(--mut);margin-top:2px}
+  .chip{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:999px;background:#23232e;border:1px solid var(--line);color:var(--mut);margin-left:6px;vertical-align:middle}
+  .desc{font-size:12.5px;color:var(--mut);margin-top:4px}
   .tags{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap}
   .tag{font-size:10.5px;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
   .links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-  .btn{
-    display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;
-    padding:9px 13px;border-radius:8px;text-decoration:none;
-    background:#23232e;color:var(--text);border:1px solid var(--line);
-  }
+  .btn{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;padding:9px 13px;border-radius:8px;text-decoration:none;background:#23232e;color:var(--text);border:1px solid var(--line)}
   .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#0e0e12;border:0}
   .empty{color:var(--faint);text-align:center;padding:60px 20px;font-size:13px}
   footer{color:var(--faint);font-size:11px;text-align:center;margin-top:40px}
+  /* Info panel */
+  .info-section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:18px}
+  .info-section h3{font-size:16px;margin-bottom:14px;color:var(--accent2);letter-spacing:.04em}
+  .info-section h4{font-size:13px;margin:16px 0 8px;color:var(--text);letter-spacing:.04em}
+  .info-section p,.info-section li{font-size:13px;color:var(--mut);line-height:1.8}
+  .info-section ul{padding-left:22px}
+  .info-section .kv{display:grid;grid-template-columns:160px 1fr;gap:10px 16px;font-size:13px;margin-top:6px}
+  .info-section .kv .k{color:var(--faint)}
+  .info-section .kv .v{color:var(--text)}
+  .swatch-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin:10px 0 4px}
+  .swatch{border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+  .swatch .chip-color{height:64px}
+  .swatch .label{padding:8px 10px;font-size:11px;color:var(--mut)}
+  .swatch .label b{display:block;color:var(--text);font-weight:700;font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:.04em}
+  .note{font-size:11.5px;color:var(--faint);margin-top:8px;line-height:1.7}
+  .callout{background:#0e0e12;border:1px dashed var(--line);border-radius:10px;padding:12px 14px;margin-top:10px;font-size:12.5px;color:var(--mut)}
+  .callout b{color:var(--text)}
   @media (max-width:720px){
-    .item{grid-template-columns:1fr;gap:10px}
+    .item.orient-item,.item.minutes-item{grid-template-columns:1fr;gap:10px}
     .links{justify-content:flex-start}
+    .info-section .kv{grid-template-columns:1fr}
+    .tabs{flex-direction:column}
+    .tab{text-align:left}
   }
 </style>
 </head>
@@ -92,21 +104,126 @@
     <div class="foot">本サイトは検索エンジンに登録されない設定です。</div>
   </div>
 </section>
+
 <section id="app">
   <div class="wrap">
     <header class="bar">
       <div class="brand">ORIENT ／ クリエイティブ・オリエン</div>
       <div class="who"><span id="whoLabel"></span> &nbsp;·&nbsp; <a id="logout">ログアウト</a></div>
     </header>
-    <h2>オリエン一覧</h2>
-    <div class="lead">日付の新しい順。リンクをクリックすると、共有先（Dropbox等）が開きます。</div>
-    <div class="list" id="list"></div>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="orient">オリエン</button>
+      <button class="tab" data-tab="info">情報</button>
+      <button class="tab" data-tab="minutes">議事録</button>
+    </nav>
+
+    <!-- TAB: オリエン -->
+    <section class="tab-panel active" id="tab-orient">
+      <h2>オリエン一覧</h2>
+      <div class="lead">日付の新しい順。リンクをクリックすると、共有先（Dropbox等）が開きます。</div>
+      <div class="list" id="orient-list"></div>
+    </section>
+
+    <!-- TAB: 情報 -->
+    <section class="tab-panel" id="tab-info">
+      <h2>情報</h2>
+      <div class="lead">案件のブランド要素・キーカラー・運用ルールのリファレンス。デザイナー／エディター向け。現状は1ページにまとめて記載、随時整理。</div>
+
+      <div class="info-section">
+        <h3>リクルートエージェント 2026 リブランド要素</h3>
+        <div class="kv">
+          <div class="k">新CMタグライン</div><div class="v"><b>「転職は新時代へ。」</b></div>
+          <div class="k">PRIME 系列タグ</div><div class="v"><b>「次の10年へ。」</b>（管理職以上の展開で使用）</div>
+          <div class="k">業界軸タグ（既出）</div><div class="v">「広告業界で働く」「自動車業界で働く」</div>
+          <div class="k">数値訴求①</div><div class="v"><b>転職決定数 No.1（※1）</b> — 注釈は「日本一の転職決定データベース」ルール準拠（厚労省「人材サービス総合サイト」出典セット）</div>
+          <div class="k">数値訴求②</div><div class="v"><b>非公開求人 25万件以上（※）</b> — 注釈要否は要CA確認</div>
+          <div class="k">ロゴ表記</div><div class="v">「リクルート エージェント」（カタカナ）を新KVで推奨</div>
+          <div class="k">タレント運用</div><div class="v">当方では使用不可 → <b>人物なし or 後姿</b>で代替</div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3>キーカラー（dusk → dawn グラデーション）</h3>
+        <p>新KV背景の象徴。<b>転職＝新しい一日のはじまり</b>を空のグラデで表現。すべての新規KV/ビジュアルで<b>フレーム内に夕景／黎明の空</b>を出す。</p>
+
+        <h4>Palette A — Dusk（深め・静謐・決断 ／ 部長・役員候補向け）</h4>
+        <div class="swatch-row">
+          <div class="swatch"><div class="chip-color" style="background:#3F4F8A"></div><div class="label"><b>#3F4F8A</b>天 indigo</div></div>
+          <div class="swatch"><div class="chip-color" style="background:#5A5C9C"></div><div class="label"><b>#5A5C9C</b>上 deep periwinkle</div></div>
+          <div class="swatch"><div class="chip-color" style="background:#7869A0"></div><div class="label"><b>#7869A0</b>中 muted purple</div></div>
+          <div class="swatch"><div class="chip-color" style="background:#9580A0"></div><div class="label"><b>#9580A0</b>下 mauve</div></div>
+          <div class="swatch"><div class="chip-color" style="background:#B59487"></div><div class="label"><b>#B59487</b>地 dusty peach</div></div>
+        </div>
+
+        <h4>Palette B — Dawn（明るめ・希望・新時代 ／ マネージャー・PM・ディレクター向け）</h4>
+        <div class="swatch-row">
+          <div class="swatch"><div class="chip-color" style="background:#7388C0"></div><div class="label"><b>#7388C0</b>天 light periwinkle</div></div>
+          <div class="swatch"><div class="chip-color" style="background:#8B97C5"></div><div class="label"><b>#8B97C5</b>上 soft blue-purple</div></div>
+          <div class="swatch"><div class="chip-color" style="background:#A09BC2"></div><div class="label"><b>#A09BC2</b>中 lavender</div></div>
+          <div class="swatch"><div class="chip-color" style="background:#C0A8B5"></div><div class="label"><b>#C0A8B5</b>下 dusty pink</div></div>
+          <div class="swatch"><div class="chip-color" style="background:#D7B3A8"></div><div class="label"><b>#D7B3A8</b>地 warm peach</div></div>
+        </div>
+
+        <h4>アクセント</h4>
+        <div class="swatch-row">
+          <div class="swatch"><div class="chip-color" style="background:#F5C144"></div><div class="label"><b>#F5C144</b>No.1 ウォームイエロー</div></div>
+          <div class="swatch"><div class="chip-color" style="background:#E55E1F"></div><div class="label"><b>#E55E1F</b>CTAオレンジ</div></div>
+        </div>
+
+        <div class="callout">使い分け：同シリーズ内で<b>濃淡のリズム</b>を作る。Dusk Aは重厚な決断（部長・役員候補）、Dawn Bは前向きな次の一歩（マネージャー・PM・ディレクター）。</div>
+      </div>
+
+      <div class="info-section">
+        <h3>共通ビジュアル指針（gpt-image-2 / fal）</h3>
+        <ul>
+          <li>夕暮れ／黎明グラデーションが視認できる構図（窓辺／屋上／開放空間）</li>
+          <li>温かい自然光（夕陽の差し込み）＋室内アンビエント</li>
+          <li>上部1/3にネガティブスペース必須（タグライン → メイン → サブ → 訴求点 → ロゴの組版用）</li>
+          <li>人物は<b>なし or 後姿</b>（タレントNG）／日本人化サフィックスは継続適用</li>
+          <li>ヌルッと禁止＋ドキュメンタリー実写質感／restrained color grade／slight grain</li>
+          <li>文字・ロゴ・銘柄は<b>生成しない</b>（原則5）。すべて後乗せのコンポジット</li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <h3>注釈ルール（legal_notes 要約）</h3>
+        <p>CMで使用するフレーズには必ずセットで注釈を付ける：</p>
+        <div class="callout">
+          <b>「日本一の転職決定データベース」</b>を使う場合の必須注記：<br>
+          ※「日本一の転職決定データベース」とは、2024年度において当該データベースに基づく人材紹介事業における転職決定数が日本一であることを指します。<br>
+          なお、転職決定数は、厚生労働省「人材サービス総合サイト」における、有料職業紹介事業者が報告した「4か月以上有期および無期」の就職者数によります。
+        </div>
+        <p class="note">原文ママ・改変禁止。年度（2024）は出典に従い更新可能性あり。出典名「厚生労働省『人材サービス総合サイト』」は略記禁止。</p>
+      </div>
+
+      <div class="info-section">
+        <h3>過去の重要FB抜粋（2026-04-10 定例ほか）</h3>
+        <ul>
+          <li>プライム＝<b>コンサル/IT/機械系の高年収</b>で勝負（数は華やか業界でも取れるが、価値はプライム）</li>
+          <li>5/7リブランディング以降は<b>キャリア診断機能訴求</b>が主戦場（キャリ氏即横展開）</li>
+          <li>エンタメは<b>芸能・ライブ寄り</b>が勝ち／ディズニー的キラキラは負け</li>
+          <li>OOH・季節性モーメント有効（4月桜・新生活など）／視認性とAI感の自然さに注意</li>
+          <li>メインコピーの<b>強さが命</b>（抽象すぎると「結局何の広告」になる）</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TAB: 議事録 -->
+    <section class="tab-panel" id="tab-minutes">
+      <h2>議事録</h2>
+      <div class="lead">クリエイティブ関連MTGの議事録ログ。日付の新しい順。サークルバック等から要約を順次追加。</div>
+      <div class="list" id="minutes-list"></div>
+    </section>
+
     <footer>HAL ／ kage-handoff/orient</footer>
   </div>
 </section>
+
 <script>
 const SALT = "hal-orient-2026-06";
 const STORAGE = "orient.unlock.v1";
+
 async function sha256hex(text){
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
   return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("");
@@ -131,23 +248,54 @@ function fmtDate(s){
   const w = ["日","月","火","水","木","金","土"][d.getDay()];
   return s.replace(/-/g,".")+"（"+w+"）";
 }
-async function renderList(){
+function esc(s){
+  return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+async function renderOrient(){
   const data = await fetch("data.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>({deliveries:[]}));
-  const list = document.getElementById("list");
+  const list = document.getElementById("orient-list");
   const items = (data.deliveries||[]).slice().sort((a,b)=>b.date.localeCompare(a.date));
   if(!items.length){ list.innerHTML = '<div class="empty">まだオリエンが登録されていません。</div>'; return; }
   list.innerHTML = items.map(it=>{
-    const tags = (it.tags||[]).map(t=>'<span class="tag">'+t+'</span>').join("");
-    const links = (it.links||[]).map((l,i)=>'<a class="btn '+(i===0?'primary':'')+'" href="'+l.url+'" target="_blank" rel="noopener noreferrer">'+l.label+'</a>').join("");
-    return '<div class="item">'
+    const tags = (it.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join("");
+    const links = (it.links||[]).map((l,i)=>'<a class="btn '+(i===0?'primary':'')+'" href="'+esc(l.url)+'" target="_blank" rel="noopener noreferrer">'+esc(l.label)+'</a>').join("");
+    return '<div class="item orient-item">'
       + '<div class="date">'+fmtDate(it.date)+'</div>'
-      + '<div><div class="title">'+it.title+'</div>'
-      + (it.desc?'<div class="desc">'+it.desc+'</div>':"")
+      + '<div><div class="title">'+esc(it.title)+'</div>'
+      + (it.desc?'<div class="desc">'+esc(it.desc)+'</div>':"")
       + (tags?'<div class="tags">'+tags+'</div>':"")
       + '</div>'
       + '<div class="links">'+links+'</div>'
       + '</div>';
   }).join("");
+}
+async function renderMinutes(){
+  const data = await fetch("minutes.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>({minutes:[]}));
+  const list = document.getElementById("minutes-list");
+  const items = (data.minutes||[]).slice().sort((a,b)=>b.date.localeCompare(a.date));
+  if(!items.length){ list.innerHTML = '<div class="empty">まだ議事録が登録されていません。</div>'; return; }
+  list.innerHTML = items.map(it=>{
+    const attendees = (it.attendees||[]).map(esc).join("、");
+    const tags = (it.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join("");
+    const typeChip = it.type ? ' <span class="chip">'+esc(it.type)+'</span>' : '';
+    return '<div class="item minutes-item">'
+      + '<div class="date">'+fmtDate(it.date)+'</div>'
+      + '<div><div class="title">'+esc(it.title)+typeChip+'</div>'
+      + (attendees?'<div class="desc"><b>出席：</b>'+attendees+'</div>':'')
+      + (it.summary?'<div class="desc">'+esc(it.summary)+'</div>':'')
+      + (tags?'<div class="tags">'+tags+'</div>':'')
+      + '</div></div>';
+  }).join("");
+}
+function setupTabs(){
+  document.querySelectorAll('.tab').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    });
+  });
 }
 async function init(){
   const stored = localStorage.getItem(STORAGE);
@@ -157,7 +305,7 @@ async function init(){
       const res = await fetch("auth.json",{cache:"no-store"}).then(r=>r.json()).catch(()=>null);
       if(res && res.keys.includes(obj.hex)){
         document.getElementById("whoLabel").textContent = obj.label;
-        show("app"); renderList(); return;
+        show("app"); setupTabs(); renderOrient(); renderMinutes(); return;
       }else{ localStorage.removeItem(STORAGE); }
     }catch(e){ localStorage.removeItem(STORAGE); }
   }
@@ -172,7 +320,7 @@ document.getElementById("gateForm").addEventListener("submit", async (e)=>{
   if(!ok){ err.textContent = "認証できませんでした。登録のメールアドレスをご確認ください。"; return; }
   localStorage.setItem(STORAGE, JSON.stringify(ok));
   document.getElementById("whoLabel").textContent = ok.label;
-  show("app"); renderList();
+  show("app"); setupTabs(); renderOrient(); renderMinutes();
 });
 document.getElementById("logout").addEventListener("click",(e)=>{
   e.preventDefault(); localStorage.removeItem(STORAGE); show("gate");
