@@ -1,6 +1,18 @@
 {
   "deliveries": [
     {
+      "date": "2026-06-09",
+      "title": "リクルートエージェント — コンサル14／次の10年（PRIME）7（画像付きハンドオフ）",
+      "desc": "コンサル業界14案・次の10年7案の画像付きハンドオフ。Dropbox親フォルダの1リンクで全ハンドオフを閲覧可（配下：20260609_consul ／ 20260609_next10y ／ 20260603_ad ／ 20260603_auto）。各フォルダの handoff.html をダウンロードして開いてください。",
+      "tags": ["RAG", "コンサル", "次の10年", "PRIME", "ハンドオフ", "画像付き"],
+      "links": [
+        {
+          "label": "Dropbox ハンドオフ一式（全案件）を開く",
+          "url": "https://www.dropbox.com/scl/fo/9zoyubyt92cwaup245rof/AIXE6qpRZ2N12Ip96U7w_40?rlkey=g8kaecyvz0evgh9qp68ckfqvb&dl=0"
+        }
+      ]
+    },
+    {
       "date": "2026-06-03",
       "title": "リクルートエージェント — 自動車業界 第1回ハンドオフ（20案／トヨタ・ホンダ・日産・マツダ）",
       "desc": "メイン20字以内＋GP4ブリッジ済みリード（全リードRecruit Agentへの転職橋渡し）＋画像（gpt-image-2 via fal）。タグライン「自動車業界で働く」は後乗せ。Dropbox: hal-shared/recruit/handoffs/20260603_auto",
