@@ -1,0 +1,41 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ナレ エンジン比較</title>
+<style>
+body{font-family:-apple-system,"Hiragino Sans",sans-serif;background:#111;color:#eee;max-width:720px;margin:0 auto;padding:22px}
+h1{font-size:17px}h2{font-size:15px;margin-top:28px;border-left:4px solid #4af;padding-left:9px}
+.row{display:flex;gap:12px;align-items:center;margin:8px 0;padding:9px 11px;background:#1b1b1e;border-radius:10px}
+.tag{font-size:12px;padding:3px 9px;border-radius:6px;min-width:150px}
+.mm{background:#243a55;color:#bfe}.oa{background:#2b4a36;color:#cfc}.old{background:#4a2b2b;color:#fcc}
+audio{flex:1}.q{color:#9be;font-size:13px;line-height:1.6}
+.win{color:#7f7;font-weight:bold}
+</style></head><body>
+<h1>VANTAN 高等部リール ナレーション 音声エンジン選定（過程記録）</h1>
+<div style="background:#1d3320;border:1px solid #2f6;border-radius:10px;padding:12px 14px;margin:14px 0">
+<b style="color:#8f8">結論：MiniMax「Wise」(カタカナ表記) を全カット共通ナレに採用</b>
+<div class="q" style="margin-top:6px">理由＝固有名詞「レコールバンタン」を歌わず最も自然・全フレーズで生成クリップ(語頭/語尾の欠け)ゼロを実測。複数エンジンをA/B比較した上での選定です。</div></div>
+<p class="q">以下は選定の聴き比べ素材（母の視点・エモ系）。候補: <b>MiniMax Wise</b>(落ち着いた女性) / <b>MiniMax Calm</b>(穏やか) / <b>OpenAI nova</b>。参考に旧v3も。</p>
+
+<h2>① 「高校を卒業できるのか心配で」<span class="q">（ゴウ評: v3が良かった所）</span></h2>
+<div class="row"><span class="tag old">現状 v3</span><audio controls src="kouko_v3now.mp3"></audio></div>
+<div class="row"><span class="tag mm">MiniMax Wise</span><audio controls src="kouko_MMwise.mp3"></audio></div>
+<div class="row"><span class="tag mm">MiniMax Calm</span><audio controls src="kouko_MMcalm.mp3"></audio></div>
+<div class="row"><span class="tag oa">OpenAI nova</span><audio controls src="kouko_OAInova.mp3"></audio></div>
+
+<h2>② 「でも見つけた」<span class="q">（v3=尻切れ / v2=変 だった所）</span></h2>
+<div class="row"><span class="tag old">現状 v3</span><audio controls src="demo_v3now.mp3"></audio></div>
+<div class="row"><span class="tag mm">MiniMax Wise</span><audio controls src="demo_MMwise.mp3"></audio></div>
+<div class="row"><span class="tag mm">MiniMax Calm</span><audio controls src="demo_MMcalm.mp3"></audio></div>
+<div class="row"><span class="tag oa">OpenAI nova</span><audio controls src="demo_OAInova.mp3"></audio></div>
+
+<h2>③ レコールバンタン ★最重要 <span class="q">カタカナ vs ひらがな入力も比較</span></h2>
+<div class="row"><span class="tag old">現状 v3(歌う)</span><audio controls src="recole_v3now.mp3"></audio></div>
+<div class="row"><span class="tag mm">MM Wise・カタカナ</span><audio controls src="recoleK_MMwise.mp3"></audio></div>
+<div class="row"><span class="tag mm">MM Wise・ひらがな</span><audio controls src="recoleH_MMwise.mp3"></audio></div>
+<div class="row"><span class="tag mm">MM Calm・カタカナ</span><audio controls src="recoleK_MMcalm.mp3"></audio></div>
+<div class="row"><span class="tag mm">MM Calm・ひらがな</span><audio controls src="recoleH_MMcalm.mp3"></audio></div>
+<div class="row"><span class="tag oa">OpenAI nova・カタカナ</span><audio controls src="recoleK_OAInova.mp3"></audio></div>
+<div class="row"><span class="tag oa">OpenAI nova・ひらがな</span><audio controls src="recoleH_OAInova.mp3"></audio></div>
+
+<p class="q" style="margin-top:22px">決め方：<b>①②で一番自然なエンジン</b>を1つ＋<b>③でレコールがマシな「エンジン×カナ表記」</b>を教えてください。<br>
+どれもダメなら→Google系TTSを立てます（APIキー発行が必要なので、その時は手順出します）。</p>
+</body></html>
